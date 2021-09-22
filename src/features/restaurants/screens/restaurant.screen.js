@@ -1,25 +1,26 @@
 import React from 'react';
 import {
   SafeAreaView,
-  Text,
   View,
   StyleSheet,
-  Platform,
+  //Platform,
   StatusBar,
 } from 'react-native';
-import RestaurantInfo from '../components/restaurant-info.components';
+import {Searchbar} from 'react-native-paper';
+import RestaurantInfoCard from '../components/restaurant-info-card.components';
 
-const isAndroid = Platform.OS === 'android';
+//const isAndroid = Platform.OS === 'android';
+console.log(StatusBar.currentHeight);
+
 const RestaurantScreen = () => {
   return (
     <>
       <SafeAreaView style={styles.container}>
         <View style={styles.search}>
-          <Text>search</Text>
+          <Searchbar placeholder="Search" />
         </View>
         <View style={styles.list}>
-          <Text>List</Text>
-          <RestaurantInfo />
+          <RestaurantInfoCard />
         </View>
       </SafeAreaView>
     </>
@@ -29,7 +30,7 @@ const RestaurantScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: isAndroid && StatusBar.currentHeight,
+    //marginTop: isAndroid ? 0 : StatusBar.currentHeight,
   },
   search: {
     padding: 16,
